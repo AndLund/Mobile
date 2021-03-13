@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ActivityAcao3">
+
+        <TextView
+            android:textSize="24dp"
+            android:id="@+id/tituloTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/titulotv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:textSize="24dp"
+            android:id="@+id/autorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/autortv"
+            app:layout_constraintStart_toStartOf="@+id/tituloTextView"
+            app:layout_constraintTop_toBottomOf="@+id/tituloTextView" />
+
+        <TextView
+            android:textSize="24dp"
+            android:id="@+id/anoTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/anotv"
+            app:layout_constraintStart_toStartOf="@+id/autorTextView"
+            app:layout_constraintTop_toBottomOf="@+id/autorTextView" />
+
+        <TextView
+            android:textSize="24dp"
+            android:id="@+id/notaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/notatv"
+            app:layout_constraintStart_toStartOf="@+id/anoTextView"
+            app:layout_constraintTop_toBottomOf="@+id/anoTextView" />
+
+        <Button
+            android:id="@+id/anteriorButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/antButton"
+            android:enabled= "false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/proximoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/proxButton"
+            android:enabled= "true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/anteriorButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

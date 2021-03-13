@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MinhaProva</string>
+    <string name="textview1">Retorno Botao01</string>
+    <string name="textview2">Retorno Botao03</string>
+    <string name="button1">Edite View</string>
+    <string name="button2">Cafe?</string>
+    <string name="button3">Edite Livro</string>
+    <string name="button4">Lista Livros</string>
+    <string name="acaoEditText">Digite aqui</string>
+    <string name="okButton">OK</string>
+    <string name="cancelarButton">Cancelar</string>
+    <string name="welcome">Bem-vindo</string>
+    <string name="otimo">Otimo</string>
+    <string name="ateAProxima">Fica para a proxima!</string>
+    <string name="titulo">Titulo</string>
+    <string name="autor">Autor</string>
+    <string name="ano">Ano</string>
+    <string name="nota">Nota</string>
+    <string name="saveButton">Salvar</string>
+    <string name="cancelButton2">Cancelar</string>
+    <string name="antButton">Anterior</string>
+    <string name="proxButton">Próximo</string>
+    <string name="titulotv">TextView</string>
+    <string name="autortv">TextView</string>
+    <string name="anotv">TextView</string>
+    <string name="notatv">TextView</string>
+</resources>
