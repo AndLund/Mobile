@@ -4,43 +4,45 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.room.Room
+import tads.ufrn.pdm.segundaprova.databinding.ActivityMainBinding
+import tads.ufrn.pdm.segundaprova.databinding.FragmentHomeBinding
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
-    val db:AppDatabase by lazy {
-        Room.databaseBuilder(
-        this,
-        AppDatabase::class.java,
-        "database-name")
-        .allowMainThreadQueries()
-        .build()
-    }
+//    val db:AppDatabase by lazy {
+//        Room.databaseBuilder(
+//        this,
+//        AppDatabase::class.java,
+//        "database-name.sqlite")
+//        .allowMainThreadQueries()
+//        .build()
+//    }
+
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        //db.comidaDAO().insert(Comida(0, "nomecomida2", "descricao2", "criador2", "regiao2", 0.7f))
+        val navController = Navigation.findNavController(this,R.id.MyNavHostFragment)
+        NavigationUI.setupActionBarWithNavController(this, navController,binding.drawerLayout)
+        NavigationUI.setupWithNavController(binding.navView, navController)
+
+        //db.comidaDAO().insert(Comida(0, "nomecomida1", "descricao1", "criador1","camaroes","regiao1",0.5f))
+        //db.comidaDAO().insert(Comida(0, "nomecomida2", "descricao2", "criador2","tabua de carne","regiao2",0.4f))
+
         //db.comidaDAO().listAll().forEach { Log.i("AAAA", it.toString()) }
-        var tarefa = listarComidas()
-        tarefa.execute(0) //retorna list
-        //tarefa.execute(1) //id especifico
+        //var tarefa = listarComidas()
     }
 
-    private inner class listarComidas : AsyncTask<Int,Void,Void>() {
-
-        override fun doInBackground(vararg p: Int?): Void? {
-            if (p[0] != 0) {
-                var id = p[0]
-                val comidaId = db.comidaDAO().findById(id.toString())
-                Log.i("logando", comidaId.toString())
-            } else {
-                var comidaAll = db.comidaDAO().listAll()
-                Log.i("logando", comidaAll.toString())
-            }
-            return null
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = Navigation.findNavController(this, R.id.MyNavHostFragment)
+        return NavigationUI.navigateUp(navController, binding.drawerLayout)
     }
 }

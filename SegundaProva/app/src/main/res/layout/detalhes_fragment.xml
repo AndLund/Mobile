@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="viewmodeldetalhes"
+            type="tads.ufrn.pdm.segundaprova.viewModel.DetalhesViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.DetalhesFragment">
+
+        <TextView
+            android:id="@+id/nomeComidaTextViewDet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:text="@{viewmodeldetalhes.nome}"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/descricaoTextViewDet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@{viewmodeldetalhes.descricao}"
+            app:layout_constraintStart_toStartOf="@+id/nomeComidaTextViewDet"
+            app:layout_constraintTop_toBottomOf="@+id/nomeComidaTextViewDet" />
+
+        <TextView
+            android:id="@+id/criadorTextViewDet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{viewmodeldetalhes.criador}"
+            app:layout_constraintStart_toStartOf="@+id/descricaoTextViewDet"
+            app:layout_constraintTop_toBottomOf="@+id/descricaoTextViewDet" />
+
+        <TextView
+            android:id="@+id/restauranteTextViewDet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{viewmodeldetalhes.restaurante}"
+            app:layout_constraintStart_toStartOf="@+id/criadorTextViewDet"
+            app:layout_constraintTop_toBottomOf="@+id/criadorTextViewDet" />
+
+        <TextView
+            android:id="@+id/regiaoTextViewDet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodeldetalhes.regiao}"
+            app:layout_constraintBottom_toBottomOf="@+id/criadorTextViewDet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/criadorTextViewDet"
+            app:layout_constraintTop_toTopOf="@+id/criadorTextViewDet" />
+
+        <RatingBar
+            android:id="@+id/notaRatingBarDet"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:rating="@{viewmodeldetalhes.avaliacao}"
+            app:layout_constraintBottom_toBottomOf="@+id/nomeComidaTextViewDet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nomeComidaTextViewDet"
+            app:layout_constraintTop_toTopOf="@+id/nomeComidaTextViewDet" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

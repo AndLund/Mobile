@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SegundaProva</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="testehomefragment">mudei home fragment</string>
+    <string name="ObjApp">O aplicativo foi desenvolvido como segunda atividade da disciplina de "Programação para Dispositivos Móveis".</string>
+    <string name="abrir">Abrir</string>
+    <string name="fechar">Fechar</string>
 </resources>
