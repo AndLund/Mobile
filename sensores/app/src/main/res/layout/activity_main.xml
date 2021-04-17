@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="40dp"
+            android:text="Proximidade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Acelerômetro"
+            app:layout_constraintStart_toStartOf="@+id/proximidadeTV"
+            app:layout_constraintTop_toBottomOf="@+id/proximidadeTV" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            android:text="Luz"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Giroscópio"
+            app:layout_constraintStart_toStartOf="@+id/luzTV"
+            app:layout_constraintTop_toBottomOf="@+id/luzTV" />
+
+        <TextView
+            android:id="@+id/proximidadeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="dist.: -- cm"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/luzTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Int.: -- lux"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/xacelerometroTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="x: -- m/s^2"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/yacelerometroTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="y: -- m/s^2"
+            app:layout_constraintStart_toStartOf="@+id/xacelerometroTV"
+            app:layout_constraintTop_toBottomOf="@+id/xacelerometroTV" />
+
+        <TextView
+            android:id="@+id/zacelerometroTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="z: -- m/s^2"
+            app:layout_constraintStart_toStartOf="@+id/yacelerometroTV"
+            app:layout_constraintTop_toBottomOf="@+id/yacelerometroTV" />
+
+        <TextView
+            android:id="@+id/xgiroscopioTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="x: -- /s"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/ygiroscopioTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="y: -- /s"
+            app:layout_constraintStart_toStartOf="@+id/xgiroscopioTV"
+            app:layout_constraintTop_toBottomOf="@+id/xgiroscopioTV" />
+
+        <TextView
+            android:id="@+id/zgiroscopioTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="z: -- /s"
+            app:layout_constraintStart_toStartOf="@+id/ygiroscopioTV"
+            app:layout_constraintTop_toBottomOf="@+id/ygiroscopioTV" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="1dp"
+            android:layout_height="250dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toStartOf="@+id/textView4"
+            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="111dp" />
+
+        <Button
+            android:id="@+id/iniciarBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="60dp"
+            android:text="Iniciar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zacelerometroTV" />
+
+        <Button
+            android:id="@+id/pararBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parar"
+            app:layout_constraintBottom_toBottomOf="@+id/iniciarBT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iniciarBT"
+            app:layout_constraintTop_toTopOf="@+id/iniciarBT" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
