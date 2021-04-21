@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable name="viewmodelcadastra"
-            type="tads.ufrn.pdm.segundaprova.viewModel.CadastraViewModel"/>
+            type="tads.ufrn.pdm.segundaprova.ui.cadastra.CadastraViewModel"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".fragment.CadastraFragment">
+        tools:context=".ui.cadastra.CadastraFragment">
 
         <LinearLayout
             android:id="@+id/margin"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="@={viewmodelcadastra.nome}"
+                android:text="@={viewmodelcadastra.comida.nomeComida}"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="@={viewmodelcadastra.descricao}"
+                android:text="@={viewmodelcadastra.comida.descricao}"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="@={viewmodelcadastra.criador}"
+                android:text="@={viewmodelcadastra.comida.criador}"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="@={viewmodelcadastra.restaurante}"
+                android:text="@={viewmodelcadastra.comida.restaurante}"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
@@ -133,7 +133,7 @@
                 android:id="@+id/regiaoEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={viewmodelcadastra.regiao}"
+                android:text="@={viewmodelcadastra.comida.regiao}"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
@@ -159,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:rating="@={viewmodelcadastra.avaliacao}" />
+                android:rating="@={viewmodelcadastra.comida.avaliacao}" />
 
         </LinearLayout>
 
@@ -170,6 +170,7 @@
 
             <Button
                 android:id="@+id/cadastraButton"
+                android:onClick="@{() -> viewmodelcadastra.cadastra()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|center_horizontal|center_vertical"

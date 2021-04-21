@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable name="viewmodelaltera"
-            type="tads.ufrn.pdm.segundaprova.viewModel.AlteraViewModel"/>
+            type="tads.ufrn.pdm.segundaprova.ui.altera.AlteraViewModel"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".fragment.AlteraFragment">
+        tools:context=".ui.altera.AlteraFragment">
 
         <LinearLayout
             android:id="@+id/margin"
@@ -168,6 +168,7 @@
 
             <Button
                 android:id="@+id/confirmaButton"
+                android:onClick="@{() -> viewmodelaltera.atualizaCadastro()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|center_horizontal|center_vertical"

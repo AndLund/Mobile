@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="tads.ufrn.pdm.segundaprova.fragment.HomeFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.home.HomeFragment"
         android:label="LISTA DE COMIDAS"
         tools:layout="@layout/fragment_home">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/cadastraFragment"
-        android:name="tads.ufrn.pdm.segundaprova.fragment.CadastraFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.cadastra.CadastraFragment"
         android:label="FORMULÁRIO DE CADASTRO"
         tools:layout="@layout/cadastra_fragment">
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/alteraFragment"
-        android:name="tads.ufrn.pdm.segundaprova.fragment.AlteraFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.altera.AlteraFragment"
         android:label="ALTERAÇÃO DE CADASTRO"
         tools:layout="@layout/fragment_altera">
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/detalhesFragment"
-        android:name="tads.ufrn.pdm.segundaprova.fragment.DetalhesFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.detalhes.DetalhesFragment"
         android:label="SOBRE A COMIDA"
         tools:layout="@layout/detalhes_fragment">
         <argument
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/sobreFragment"
-        android:name="tads.ufrn.pdm.segundaprova.fragment.SobreFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.sobre.SobreFragment"
         android:label="SOBRE O DEV"
         tools:layout="@layout/fragment_sobre" />
 </navigation>

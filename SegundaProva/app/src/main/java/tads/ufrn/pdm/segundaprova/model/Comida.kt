@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity (tableName = "tabela_comida")
 data class Comida(
-    @PrimaryKey(autoGenerate = true) val id:Int,
     @ColumnInfo var nomeComida:String,
     @ColumnInfo var descricao:String,
     @ColumnInfo var criador:String,
@@ -14,5 +13,8 @@ data class Comida(
     @ColumnInfo var regiao:String,
     @ColumnInfo var avaliacao:Float
 ){
+    @PrimaryKey(autoGenerate = true)
+    var id:Int = 0
 
-}
+    constructor() : this("","","","","",0.0F)
+ }

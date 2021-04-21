@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController,binding.drawerLayout)
         NavigationUI.setupWithNavController(binding.navView, navController)
 
-        //db.comidaDAO().insert(Comida(0, "nomecomida1", "descricao1", "criador1","camaroes","regiao1",0.5f))
-        //db.comidaDAO().insert(Comida(0, "nomecomida2", "descricao2", "criador2","tabua de carne","regiao2",0.4f))
+        //db.comidaDAO().insert(Comida("nomecomida1", "descricao1", "criador1","camaroes","regiao1",0.5f))
+        //db.comidaDAO().insert(Comida("nomecomida2", "descricao2", "criador2","tabua de carne","regiao2",0.4f))
 
         //db.comidaDAO().listAll().forEach { Log.i("AAAA", it.toString()) }
         //var tarefa = listarComidas()
