@@ -13,7 +13,6 @@ import tads.ufrn.pdm.segundaprova.*
 import tads.ufrn.pdm.segundaprova.ui.home.adapter.ComidaAdapter
 import tads.ufrn.pdm.segundaprova.databinding.FragmentHomeBinding
 import tads.ufrn.pdm.segundaprova.ui.dialogs.HomeDialogFragment
-//import tads.ufrn.pdm.segundaprova.fragment.HomeFragmentDirections
 import tads.ufrn.pdm.segundaprova.util.ComidaRecyclerViewClickListener
 
 

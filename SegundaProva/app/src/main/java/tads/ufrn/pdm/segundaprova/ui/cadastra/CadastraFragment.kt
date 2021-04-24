@@ -10,9 +10,6 @@ import androidx.navigation.ui.NavigationUI
 import tads.ufrn.pdm.segundaprova.ui.dialogs.CadastraDialogFragment
 import tads.ufrn.pdm.segundaprova.R
 import tads.ufrn.pdm.segundaprova.databinding.CadastraFragmentBinding
-import tads.ufrn.pdm.segundaprova.ui.altera.AlteraFragmentDirections
-
-//import tads.ufrn.pdm.segundaprova.fragment.CadastraFragmentDirections
 
 class CadastraFragment : Fragment() {
 

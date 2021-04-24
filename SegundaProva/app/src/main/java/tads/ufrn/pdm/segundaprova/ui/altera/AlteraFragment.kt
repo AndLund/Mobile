@@ -11,9 +11,6 @@ import androidx.navigation.ui.NavigationUI
 import tads.ufrn.pdm.segundaprova.ui.dialogs.AlteraDialogFragment
 import tads.ufrn.pdm.segundaprova.R
 import tads.ufrn.pdm.segundaprova.databinding.FragmentAlteraBinding
-//import tads.ufrn.pdm.segundaprova.fragment.AlteraFragmentArgs
-//import tads.ufrn.pdm.segundaprova.fragment.AlteraFragmentDirections
-
 
 class AlteraFragment : Fragment() {
 
