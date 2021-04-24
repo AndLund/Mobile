@@ -28,9 +28,8 @@ class HomeFragment : Fragment() {
         binding.recyclerviewHomeFragment.adapter = adapter
 
         homeFragmentViewModel.list.observe(viewLifecycleOwner, Observer {
-            adapter.comidas = it
+            adapter.submitList(it)
             //Log.i("aaaa", it.toString())
-            adapter.notifyDataSetChanged()
         })
 
         val layout = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -41,12 +40,12 @@ class HomeFragment : Fragment() {
             ComidaRecyclerViewClickListener(requireContext(), rv,
             object : ComidaRecyclerViewClickListener.OnItemClickListener {
                 override fun onItemClick(v: View, position: Int) {
-                    val action = HomeFragmentDirections.actionHomeFragmentToDetalhesFragment(position + 1)
+                    val action = HomeFragmentDirections.actionHomeFragmentToDetalhesFragment(adapter.currentList[position].id)
                     Navigation.findNavController(rv).navigate(action)
                 }
 
                 override fun onItemLongClick(v: View, position: Int) {
-                    val action = HomeFragmentDirections.actionHomeFragmentToAlteraFragment(position + 1)
+                    val action = HomeFragmentDirections.actionHomeFragmentToAlteraFragment(adapter.currentList[position].id)
                     Navigation.findNavController(rv).navigate(action)
                 }
             })
