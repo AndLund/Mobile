@@ -1,8 +1,11 @@
 package tads.ufrn.pdm.segundaprova.ui.home.adapter
 
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 
-/*
-* Não houve necessidade de criar as funções. Deixo aqui registrada a existência de bindinutils. =D
-* ALH
-* */
+@BindingAdapter("BindingUtilsTV")
+fun TextView.NotaDaComida(nota: Float?){
+    nota?.let{
+        text = it.toString()+"☺"
+    }
+}
