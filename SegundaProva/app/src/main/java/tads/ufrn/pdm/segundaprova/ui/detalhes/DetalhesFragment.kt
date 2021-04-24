@@ -10,7 +10,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
 import tads.ufrn.pdm.segundaprova.ui.dialogs.DetalhesDialogFragment
 import tads.ufrn.pdm.segundaprova.R
+import tads.ufrn.pdm.segundaprova.SegundaProvaApplication
 import tads.ufrn.pdm.segundaprova.databinding.DetalhesFragmentBinding
+import tads.ufrn.pdm.segundaprova.ui.altera.AlteraViewModel
+
 //import tads.ufrn.pdm.segundaprova.fragment.DetalhesFragmentArgs
 
 class DetalhesFragment : Fragment() {
@@ -21,9 +24,10 @@ class DetalhesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.detalhes_fragment, container,false)
-        detalhesViewModel = ViewModelProvider(this).get(DetalhesViewModel::class.java)
+        val viewModelFactory = DetalhesViewModel.Factory((requireActivity().application as SegundaProvaApplication).repository)
+        detalhesViewModel = ViewModelProvider(this,viewModelFactory).get(DetalhesViewModel::class.java)
 
-        detalhesViewModel.setComida(args.id)
+        detalhesViewModel.getComida(args.id)
 
         binding.lifecycleOwner = this
         binding.viewmodeldetalhes = detalhesViewModel

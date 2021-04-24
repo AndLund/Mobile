@@ -1,28 +1,27 @@
 package tads.ufrn.pdm.segundaprova.ui.altera
 
-import android.app.Application
-import android.os.AsyncTask
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.room.Room
-import tads.ufrn.pdm.segundaprova.database.AppDatabase
+import androidx.lifecycle.*
+import kotlinx.coroutines.launch
+import tads.ufrn.pdm.segundaprova.database.ComidaRepository
 import tads.ufrn.pdm.segundaprova.model.Comida
+import java.lang.IllegalArgumentException
 
 @Suppress("DEPRECATION")
-class AlteraViewModel(application: Application) : AndroidViewModel(application) {
-    lateinit var comida: Comida
+class AlteraViewModel private constructor(val repositorio: ComidaRepository) : ViewModel() {
+    private val _comida = MutableLiveData<Comida>()
+    val comida:LiveData<Comida>
+        get() = _comida
 
     private var _eventAlteraComida = MutableLiveData<Boolean>(false)
     val eventAlteraComida:LiveData<Boolean>
         get() = _eventAlteraComida
 
-    val db: AppDatabase by lazy {
-        Room.databaseBuilder(application.applicationContext, AppDatabase::class.java,"database-name.sqlite").build()
-    }
-
     fun atualizaCadastro(){
-        atualizaBD(db, comida).execute().get()
+        viewModelScope.launch {
+            comida.value?.let {
+                repositorio.update(it)
+            }
+        }
         _eventAlteraComida.value = true
     }
 
@@ -30,21 +29,18 @@ class AlteraViewModel(application: Application) : AndroidViewModel(application) 
         _eventAlteraComida.value = false
     }
 
-    @Suppress("DEPRECATION")
-    private inner class atualizaBD(var db: AppDatabase, var comida: Comida) : AsyncTask<Void, Void, Int>() {
-        override fun doInBackground(vararg params: Void?): Int {
-            return db.comidaDAO().update(comida)
+    fun getComidaAt(id:Int){
+        viewModelScope.launch {
+            _comida.value = repositorio.findById(id)
         }
     }
 
-    @Suppress("DEPRECATION")
-    private inner class listarComidaPorID(var db: AppDatabase, var id: Int) : AsyncTask<Void, Void, Comida>() {
-        override fun doInBackground(vararg params: Void?): Comida? {
-            return db.comidaDAO().findById(id)
+    class Factory(val repositorio: ComidaRepository):ViewModelProvider.Factory{
+        override fun <T: ViewModel?> create(modelClass: Class<T>):T{
+            if(modelClass.isAssignableFrom(AlteraViewModel::class.java)){
+                return AlteraViewModel(repositorio) as T
+            }
+            throw IllegalArgumentException("unknown viewModel class")
         }
-    }
-
-    fun setComidaAt(id:Int){
-        comida = listarComidaPorID(db,id).execute().get()
     }
 }

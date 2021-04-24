@@ -2,29 +2,23 @@ package tads.ufrn.pdm.segundaprova.ui.home
 
 import android.app.Application
 import android.os.AsyncTask
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.*
 import androidx.room.Room
 import tads.ufrn.pdm.segundaprova.database.AppDatabase
+import tads.ufrn.pdm.segundaprova.database.ComidaRepository
 import tads.ufrn.pdm.segundaprova.model.Comida
+import java.lang.IllegalArgumentException
 
 @Suppress("DEPRECATION")
-class HomeFragmentViewModel(application: Application) : AndroidViewModel(application){
-    var list: LiveData<List<Comida>>
+class HomeFragmentViewModel private constructor(repositorio: ComidaRepository) : ViewModel(){
+    var list: LiveData<List<Comida>> = repositorio.listAll.asLiveData()
 
-    init{
-        val db: AppDatabase by lazy {
-            //Room.databaseBuilder(application.applicationContext,AppDatabase::class.java,"database-name.sqlite").allowMainThreadQueries().build()
-            Room.databaseBuilder(application.applicationContext, AppDatabase::class.java,"database-name.sqlite").build()
-        }
-        list = listarComidas(db).execute().get()
-    }
-
-    @Suppress("DEPRECATION")
-    private inner class listarComidas(var bd: AppDatabase) : AsyncTask<Void, Void, LiveData<List<Comida>>>() {
-        override fun doInBackground(vararg params: Void?): LiveData<List<Comida>>? {
-            return bd.comidaDAO().listAll()
+    class Factory(val repositorio: ComidaRepository): ViewModelProvider.Factory{
+        override fun <T: ViewModel?> create(modelClass: Class<T>):T{
+            if(modelClass.isAssignableFrom(HomeFragmentViewModel::class.java)){
+                return HomeFragmentViewModel(repositorio) as T
+            }
+            throw IllegalArgumentException("unknown viewModel class")
         }
     }
-
 }

@@ -9,6 +9,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import tads.ufrn.pdm.segundaprova.ui.dialogs.CadastraDialogFragment
 import tads.ufrn.pdm.segundaprova.R
+import tads.ufrn.pdm.segundaprova.SegundaProvaApplication
 import tads.ufrn.pdm.segundaprova.databinding.CadastraFragmentBinding
 
 class CadastraFragment : Fragment() {
@@ -18,7 +19,8 @@ class CadastraFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.cadastra_fragment, container,false)
-        cadastraViewModel = ViewModelProvider(this).get(CadastraViewModel::class.java)
+        val viewModelFactory = CadastraViewModel.Factory((requireActivity().application as SegundaProvaApplication).repository)
+        cadastraViewModel = ViewModelProvider(this, viewModelFactory).get(CadastraViewModel::class.java)
 
         binding.lifecycleOwner = this
         binding.viewmodelcadastra = cadastraViewModel

@@ -22,7 +22,8 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false)
-        homeFragmentViewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
+        val viewModelFactory = HomeFragmentViewModel.Factory((requireActivity().application as SegundaProvaApplication).repository)
+        homeFragmentViewModel = ViewModelProvider(this, viewModelFactory).get(HomeFragmentViewModel::class.java)
 
         val adapter = ComidaAdapter()
         binding.recyclerviewHomeFragment.adapter = adapter

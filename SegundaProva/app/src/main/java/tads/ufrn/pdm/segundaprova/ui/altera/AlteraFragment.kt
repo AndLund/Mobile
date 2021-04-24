@@ -10,7 +10,9 @@ import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
 import tads.ufrn.pdm.segundaprova.ui.dialogs.AlteraDialogFragment
 import tads.ufrn.pdm.segundaprova.R
+import tads.ufrn.pdm.segundaprova.SegundaProvaApplication
 import tads.ufrn.pdm.segundaprova.databinding.FragmentAlteraBinding
+import tads.ufrn.pdm.segundaprova.ui.cadastra.CadastraViewModel
 
 class AlteraFragment : Fragment() {
 
@@ -21,9 +23,10 @@ class AlteraFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container,false)
-        alteraViewModel = ViewModelProvider(this).get(AlteraViewModel::class.java)
+        val viewModelFactory = AlteraViewModel.Factory((requireActivity().application as SegundaProvaApplication).repository)
+        alteraViewModel = ViewModelProvider(this,viewModelFactory).get(AlteraViewModel::class.java)
 
-        alteraViewModel.setComidaAt(args.id)
+        alteraViewModel.getComidaAt(args.id)
 
         binding.lifecycleOwner = this
         binding.viewmodelaltera = alteraViewModel
@@ -35,12 +38,6 @@ class AlteraFragment : Fragment() {
                 alteraViewModel.onAlteraComidaComplete()
             }
         })
-
-//        binding.confirmaButton.setOnClickListener(){
-//            this.alteraViewModel.atualizaCadastro()
-//            var action = AlteraFragmentDirections.actionAlteraFragmentToHomeFragment()
-//            Navigation.findNavController(requireView()).navigate(action)
-//        }
 
         setHasOptionsMenu(true)
 
