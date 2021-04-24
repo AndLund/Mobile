@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="comida"
+            type="tads.ufrn.pdm.segundaprova.model.Comida" />
+    </data>
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
-        android:gravity="center_vertical"
-        android:focusable="true"
         android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground">
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/nomeComidaTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="2dp"
-            android:text="TextView" />
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text="@{comida.nomeComida}" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="?android:attr/listDivider" />
 
     </LinearLayout>
 </layout>
