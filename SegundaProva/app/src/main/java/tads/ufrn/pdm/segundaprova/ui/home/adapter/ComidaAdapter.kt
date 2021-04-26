@@ -2,7 +2,6 @@ package tads.ufrn.pdm.segundaprova.ui.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -11,8 +10,7 @@ import tads.ufrn.pdm.segundaprova.R
 import tads.ufrn.pdm.segundaprova.databinding.ComidaInflaterBinding
 import tads.ufrn.pdm.segundaprova.model.Comida
 
-class ComidaAdapter: ListAdapter<Comida, ComidaAdapter.ComidaViewHolder>(ComidaDiffCallBack()) {
-
+class ComidaAdapter : ListAdapter<Comida, ComidaAdapter.ComidaViewHolder>(ComidaDiffCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComidaViewHolder {
         return ComidaViewHolder.from(parent)
     }

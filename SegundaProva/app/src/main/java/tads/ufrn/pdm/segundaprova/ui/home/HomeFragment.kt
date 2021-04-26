@@ -1,7 +1,10 @@
 package tads.ufrn.pdm.segundaprova.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.Adapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -9,9 +12,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import tads.ufrn.pdm.segundaprova.*
+import tads.ufrn.pdm.segundaprova.api.Endpoint
+import tads.ufrn.pdm.segundaprova.api.NetworkUtils
 import tads.ufrn.pdm.segundaprova.ui.home.adapter.ComidaAdapter
 import tads.ufrn.pdm.segundaprova.databinding.FragmentHomeBinding
+import tads.ufrn.pdm.segundaprova.model.Comida2
 import tads.ufrn.pdm.segundaprova.ui.dialogs.HomeDialogFragment
 import tads.ufrn.pdm.segundaprova.util.ComidaRecyclerViewClickListener
 
@@ -30,7 +39,6 @@ class HomeFragment : Fragment() {
 
         homeFragmentViewModel.list.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
-            //Log.i("aaaa", it.toString())
         })
 
         val layout = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)

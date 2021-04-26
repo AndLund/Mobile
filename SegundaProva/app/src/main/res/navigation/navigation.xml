@@ -54,4 +54,9 @@
         android:name="tads.ufrn.pdm.segundaprova.ui.sobre.SobreFragment"
         android:label="SOBRE O DEV"
         tools:layout="@layout/fragment_sobre" />
+    <fragment
+        android:id="@+id/serverFragment"
+        android:name="tads.ufrn.pdm.segundaprova.api.ServerFragment"
+        android:label="server"
+        tools:layout="@layout/fragment_server" />
 </navigation>

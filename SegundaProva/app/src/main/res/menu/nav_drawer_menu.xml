@@ -10,4 +10,9 @@
         android:icon="@drawable/i2"
         android:title="Sobre o Desenvolvedor"
         />
+    <item
+        android:id="@+id/serverFragment"
+        android:icon="@android:drawable/ic_media_next"
+        android:title="Conectando ao Server"
+        />
 </menu>
