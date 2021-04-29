@@ -8,11 +8,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-//Arbitrary ID manager since we don't use a database
-//var index = 5;
-
-// Initializing Destinations Array.. It will behave like a dummy database 
-
 var comidas = [{
     "id": 1,
     "nomeComida": "Pizza",
@@ -55,7 +50,7 @@ var comidas = [{
     "avaliacao": 4.5
 }]
 
-// Get the list of destinations, convert it to JSON and send it back to client 
+// Pega lista de comidas converte para JSON e envia para o app
 app.get('/comidas', function (req, res) {
     var count = req.query.count != undefined ? req.query.count : req.query.count = 100;
     if (req.query.nomeComida) {
@@ -68,7 +63,7 @@ app.get('/comidas', function (req, res) {
     res.end(JSON.stringify(comidas.slice(0, count)));
 })
 
-// Get one particular Destination using ID 
+// Pega 1 ID
 app.get('/comidas/:id', function (req, res) {
     for (var i = 0; i < comidas.length; i++) {
         if (comidas[i].id == req.params.id) {
@@ -77,15 +72,15 @@ app.get('/comidas/:id', function (req, res) {
     }
 })
 
-// Home Page 
-app.get('/', (req, res) => res.send('Welcome! You are all set to go!'))
+// Home Page
+app.get('/', (req, res) => res.send('Home'))
 
-// Configure server 
+// Configuralção do server 
 var server = app.listen(8080, '127.0.0.1', function (req, res) {
 
     var host = server.address().address
     var port = server.address().port
 
-    console.log(`Server running at http://${host}:${port}/`);
+    console.log(`Server rodando em http://${host}:${port}/`);
 })
 
