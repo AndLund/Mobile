@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cadastraFragment"
+        android:icon="@drawable/iu"
+        android:title="Cadastrar comida"
+        />
+    <item
+        android:id="@+id/sobreFragment"
+        android:icon="@drawable/i2"
+        android:title="Sobre o Desenvolvedor"
+        />
+    <item
+        android:id="@+id/serverFragment"
+        android:icon="@android:drawable/ic_media_next"
+        android:title="Conectando ao Server"
+        />
+</menu>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.home.HomeFragment"
+        android:label="LISTA DE COMIDAS"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detalhesFragment"
+            app:destination="@id/detalhesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_alteraFragment"
+            app:destination="@id/alteraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastraFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.cadastra.CadastraFragment"
+        android:label="FORMULÁRIO DE CADASTRO"
+        tools:layout="@layout/cadastra_fragment">
+        <action
+            android:id="@+id/action_cadastraFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alteraFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.altera.AlteraFragment"
+        android:label="ALTERAÇÃO DE CADASTRO"
+        tools:layout="@layout/fragment_altera">
+        <action
+            android:id="@+id/action_alteraFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.detalhes.DetalhesFragment"
+        android:label="SOBRE A COMIDA"
+        tools:layout="@layout/detalhes_fragment">
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
+    <fragment
+        android:id="@+id/sobreFragment"
+        android:name="tads.ufrn.pdm.segundaprova.ui.sobre.SobreFragment"
+        android:label="SOBRE O DEV"
+        tools:layout="@layout/fragment_sobre" />
+    <fragment
+        android:id="@+id/serverFragment"
+        android:name="tads.ufrn.pdm.segundaprova.api.ServerFragment"
+        android:label="server"
+        tools:layout="@layout/fragment_server" />
+</navigation>
